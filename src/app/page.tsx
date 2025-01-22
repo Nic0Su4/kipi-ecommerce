@@ -1,15 +1,10 @@
 import Link from "next/link";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import {} from "@/utils/supabase/server";
-
-const categories = [
-  { name: "Restaurantes", icon: "🍽️", href: "/category/restaurants" },
-  { name: "Supermercados", icon: "🛒", href: "/category/supermarkets" },
-  { name: "Farmacias", icon: "💊", href: "/category/pharmacies" },
-  { name: "Tiendas", icon: "🏪", href: "/category/stores" },
-];
+import { createClient } from "@/utils/supabase/server";
 
 export default async function Home() {
+  const supabase = await createClient();
+
   return (
     <main className="container mx-auto px-4 py-8">
       <h1 className="text-3xl font-bold mb-2 text-left">Bienvenido a Kipi</h1>
